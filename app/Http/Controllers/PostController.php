@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
@@ -91,7 +89,7 @@ class PostController extends Controller
     public function destroy(int $id): RedirectResponse
     {
         $post = Post::find($id);
-        if (isset($post)) $post->delete();
+        $post?->delete();
         return redirect()->route('blog.index');
     }
 }
