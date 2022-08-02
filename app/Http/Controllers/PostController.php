@@ -18,8 +18,8 @@ class PostController extends Controller
      */
     public function index(): View
     {
-        $posts = Post::all();
-        return view('welcome', compact('posts'));
+        $posts = Post::latest()->get();
+        return view('blog', compact('posts'));
     }
 
     /**
