@@ -26,8 +26,7 @@ class StorePostRequest extends FormRequest
         return [
             'title' => ['string', 'min:10', 'max:50', 'required'],
             'description' => ['string', 'min:10', 'max:100', 'nullable'],
-            'author' => ['string', 'min:2', 'max:20', 'required'],
-            'text' => ['string', 'min:10', 'max:150', 'required']
+            'body' => ['string', 'min:10', 'max:150', 'required']
         ];
     }
 }
