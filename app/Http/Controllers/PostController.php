@@ -8,6 +8,7 @@ use App\Http\Requests\UpdatePostRequest;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -18,6 +19,7 @@ class PostController extends Controller
      */
     public function index(): View
     {
+     
         $posts = Post::latest()->get();
         return view('blog', compact('posts'));
     }
@@ -38,10 +40,11 @@ class PostController extends Controller
      * @param StorePostRequest $request
      * @return string
      */
-    public function store(StorePostRequest $request): string
+    public function store(Request $request)
     {
-        $data = $request->validated();
-        Post::create($data);
+        $datas = $request->all();
+        $datas['image'] = $request->file('image')->store('post', 'public');
+        Post::create($datas);
 
         return redirect()->route('blog.index');
     }

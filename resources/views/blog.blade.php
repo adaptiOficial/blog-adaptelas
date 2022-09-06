@@ -18,21 +18,23 @@
         @csrf
         @method('POST')
 
-        <label for="title">
-            <input name="title" type="text"/>
-        </label>
-        <label for="description">
-            Descrição
-            <input name="description" type="text"/>
-        </label>
-        <label for="author">
-            Autor
-            <input name="author" type="text"/>
-        </label>
-        <label for="text">
-            Texto
-            <input name="text" type="text"/>
-        </label>
+        <label for="title">Titulo</label>
+        <input name="title" type="text"/>
+
+        <label for="description">Descrição</label>
+        <input name="description" type="text"/>
+
+        <label for="author">Autor</label>
+        <input name="author" type="text"/>
+
+        <label for="category">Categoria</label>
+        <input name="category" type="text"/>
+
+        <label for="body">Texto</label>
+        <textarea name="body" type="text"></textarea>
+
+        <label for="image">Imagem</label>
+        <input type="file" id="image" name="image" at1="image" accept="image/*">
     </form>
     <button type="submit" form="meu-form">Postar</button>
 </div>
@@ -47,7 +49,10 @@
                 <h4 style="text-align: center; margin: 0">{{ $post->description }}</h4>
                 <span style="text-align: center; margin: 0 0 5px 0; font-size: 6px">{{ $post->created_at }}</span>
                 <p style="text-align: center; margin: 5px 0 5px 0; font-size: 12px">{{ $post->text }}</p>
+                <p style="text-align: center; margin: 5px 0 5px 0; font-size: 12px">{{ $post->category }}</p>
                 <span style="text-align: center; margin: 0 0 5px 0; font-size: 8px">By: {{ $post->author }}</span>
+                <img  src = "storage/{{$post->image}}"style=" margin: 0 0 5px 0; "/>
+
                 <form id="delete-{{$post->id}}" action="{{ route('blog.delete', $post->id) }}" method="POST">
 
                     @csrf

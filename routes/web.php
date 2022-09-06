@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/blog', [PostController::class, 'index'])->name('blog.index');
 Route::post('/blog/post', [PostController::class, 'store'])->name('blog.store');
 Route::delete('/blog/post/{id}', [PostController::class, 'destroy'])->name('blog.delete');
+
+Route::get('/',[SiteController::class, 'index']);

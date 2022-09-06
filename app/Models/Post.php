@@ -35,7 +35,9 @@ class Post extends Model
     protected $fillable = [
         'title',
         'description',
+        'category',
+        'image',
         'author',
-        'text'
+        'body'
     ];
 }
