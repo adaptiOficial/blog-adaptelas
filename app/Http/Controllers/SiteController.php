@@ -15,6 +15,7 @@ class SiteController extends Controller
     public function index()
     {
         $posts = Post::all();
+        
         return view('pages.postagens', compact('posts'));
     }
 
@@ -47,7 +48,6 @@ class SiteController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -82,5 +82,16 @@ class SiteController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function sobremin(){
+        $sobremin = Post::find(1);
+        return view('pages.sobre', compact('sobremin'));
+    }
+
+    public function post($id){
+        
+        $postagem = Post::find($id);
+        $posts = Post::all();
+        return view('pages.post', ['postagem'=>$postagem, 'posts'=>$posts]);
     }
 }

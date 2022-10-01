@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   
   <title> @yield('title') </title>
+
 </head>
 <body>
   <header>
@@ -18,7 +19,7 @@
         <img src="{{asset('assets/image/logo-adaptelas.png')}}" alt="Logo Adaptelas">
       </div>
       <ul class="links">
-        <li><a class="link" href="#">Blog</a></li>
+        <li><a class="link" href="{{route('lista.postagem')}}">Blog</a></li>
         <li><a class="link" href="#">Sobre min</a></li>
         <li><a class="link" href="{{route('blog.index')}}">Cadastrar Post</a></li>
       </ul>
